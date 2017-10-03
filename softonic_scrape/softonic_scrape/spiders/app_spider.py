@@ -6,13 +6,12 @@ clean_article_regex = re.compile(r'\n|\t| class=\"app-softonic-review__content \
 class AppSpider(scrapy.Spider):
     name = 'app'
 
+    # Apps that will be scraped for testing
     start_urls = [
         'https://skim.en.softonic.com/mac',
         'https://moboplay.en.softonic.com/',
         'https://the-unarchiver.en.softonic.com/mac'
     ]
-
-    clean_regex = re.compile(r'\n|\t| class=\"app-softonic-review__content \"')
 
     def parse(self, response):
         review_node = response.xpath("//article[@class='app-softonic-review__content ']")
