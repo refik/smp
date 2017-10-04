@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Apps</title>
+</head>
+<body>
+
+<ul>
+
+    {% for app in app_list %}
+    <li>
+        <a href="{% url 'app' app.id %}">{{ app.name }}</a>
+    </li>
+    {% endfor %}
+
+</ul>
+
+
+</body>
+</html>
