@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from mvp.models import App
+
 # Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
@@ -8,4 +10,6 @@
 
 class SoftonicScrapePipeline(object):
     def process_item(self, item, spider):
-        return item
+        item.pop('categories')
+        app = App(**item)
+        app.save()

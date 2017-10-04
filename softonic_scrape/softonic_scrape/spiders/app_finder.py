@@ -40,7 +40,7 @@ class FindAppSpider(scrapy.Spider):
         categories = response.xpath("//li[@class='list-tags__item']/a/@title").extract()
 
         yield {
-            "app_name": app_name,
+            "name": app_name,
             "logo_url": logo_url,
             "article": review,
             "categories": categories
