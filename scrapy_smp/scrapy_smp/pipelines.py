@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from mvp.models import App
+from mvp.models import ScrapedItem
+import json
 
 # Define your item pipelines here
 #
@@ -8,8 +9,8 @@ from mvp.models import App
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-class SoftonicScrapePipeline(object):
+class ScrapySmpPipeline(object):
     def process_item(self, item, spider):
-        item.pop('categories')
-        app = App(**item)
-        app.save()
+        meta = item.pop('scrapy_meta')
+        scraped_item = ScrapedItem(**meta, item = json.dumps(item))
+        scraped_item.save()

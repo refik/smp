@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for softonic_scrape project
+# Scrapy settings for scrapy_smp project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'softonic_scrape'
+BOT_NAME = 'scrapy_smp'
 
-SPIDER_MODULES = ['softonic_scrape.spiders']
-NEWSPIDER_MODULE = 'softonic_scrape.spiders'
+SPIDER_MODULES = ['scrapy_smp.spiders']
+NEWSPIDER_MODULE = 'scrapy_smp.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'softonic_scrape (+http://www.yourdomain.com)'
+#USER_AGENT = 'scrapy_smp (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'softonic_scrape.middlewares.SoftonicScrapeSpiderMiddleware': 543,
+#    'scrapy_smp.middlewares.ScrapySmpSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'softonic_scrape.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'scrapy_smp.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'softonic_scrape.pipelines.SoftonicScrapePipeline': 300,
+   'scrapy_smp.pipelines.ScrapySmpPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
