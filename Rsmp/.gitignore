@@ -1,0 +1,4 @@
+packrat/lib*/
+man/
+.Rhistory
+packrat/src/

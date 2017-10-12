@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 
@@ -13,4 +14,4 @@ class ScrapedItem(models.Model):
     spider_name = models.CharField(max_length = 500)
     callback_function = models.CharField(max_length=500)
     spider_load_time = models.DateTimeField()
-    item = models.TextField()
+    item = JSONField()

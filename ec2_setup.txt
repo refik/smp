@@ -1,0 +1,24 @@
+sudo apt update
+sudo apt upgrade
+sudo apt install python-pip
+sudo apt install virtualenv
+sudo adduser smp
+sudo adduser smp sudo
+su smp; cd
+sudo vim /etc/hostname # smp
+sudo vim /etc/hosts # smp
+sudo vim /etc/ssh/sshd_config #PasswordAuthentication yes
+sudo service sshd restart
+
+# From local
+ssh-copy-id smp@ip-address-of-server
+
+sudo vim /etc/ssh/sshd_config #PasswordAuthentication no
+sudo service sshd restart
+sudo reboot
+
+virtualenv -p python3 virtualenv
+source virtualenv/bin/activate
+git clone https://github.com/refik/smp.git
+vim .Renviron # DB connection credentials
+echo "eval \`cat .Renviron | egrep '^[^#]+' | sed 's/.*/export &/'\`" >> .bash_profile

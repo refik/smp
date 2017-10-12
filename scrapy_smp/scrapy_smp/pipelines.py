@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from mvp.models import ScrapedItem
-import json
 
 # Define your item pipelines here
 #
@@ -12,5 +11,6 @@ import json
 class ScrapySmpPipeline(object):
     def process_item(self, item, spider):
         meta = item.pop('scrapy_meta')
-        scraped_item = ScrapedItem(**meta, item = json.dumps(item))
+        scraped_item = ScrapedItem(**meta, item=item)
         scraped_item.save()
+        return item
