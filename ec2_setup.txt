@@ -2,6 +2,8 @@ sudo apt update
 sudo apt upgrade
 sudo apt install python-pip
 sudo apt install virtualenv
+sudo apt install python3-dev
+sudo apt install htop
 sudo adduser smp
 sudo adduser smp sudo
 su smp; cd
@@ -20,5 +22,6 @@ sudo reboot
 virtualenv -p python3 virtualenv
 source virtualenv/bin/activate
 git clone https://github.com/refik/smp.git
-vim .Renviron # DB connection credentials
-echo "eval \`cat .Renviron | egrep '^[^#]+' | sed 's/.*/export &/'\`" >> .bash_profile
+vim .Renviron # DB connection credentials & SMP_DJANGO_PATH
+echo "eval \`cat ~/.Renviron | egrep '^[^#]+' | sed 's/.*/export &/'\`" >> .bash_profile
+pip install -r requirements.txt
