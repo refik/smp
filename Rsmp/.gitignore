@@ -2,3 +2,4 @@ packrat/lib*/
 man/
 .Rhistory
 packrat/src/
+inst/doc

@@ -17,5 +17,9 @@ Import:
   devtools,
   glue,
   purrr,
-  memoise
+  memoise,
+  stringr
 RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
