@@ -1,27 +1,37 @@
+# Initial upgrade
 sudo apt update
 sudo apt upgrade
-sudo apt install python-pip
-sudo apt install virtualenv
+
+# Essential packages
 sudo apt install python3-dev
+sudo apt install python3-pip
+sudo apt install python3-virtualenv
 sudo apt install htop
+
+# Create sudoer user
 sudo adduser smp
 sudo adduser smp sudo
 su smp; cd
+
+# Change hostname
 sudo vim /etc/hostname # smp
 sudo vim /etc/hosts # smp
+
+# Allow ssh access
 sudo vim /etc/ssh/sshd_config #PasswordAuthentication yes
 sudo service sshd restart
-
-# From local
-ssh-copy-id smp@ip-address-of-server
-
+ssh-copy-id smp@ip-address-of-server # From local
 sudo vim /etc/ssh/sshd_config #PasswordAuthentication no
 sudo service sshd restart
 sudo reboot
 
+# Setup repo
 virtualenv -p python3 virtualenv
 source virtualenv/bin/activate
 git clone https://github.com/refik/smp.git
-vim .Renviron # DB connection credentials & SMP_DJANGO_PATH
-echo "eval \`cat ~/.Renviron | egrep '^[^#]+' | sed 's/.*/export &/'\`" >> .bash_profile
 pip install -r requirements.txt
+
+# Configuration parameters
+vim .Renviron # DB connection credentials & SMP_DJANGO_PATH
+echo "eval \`cat .Renviron | egrep '^SMP_.+=.+' | sed 's/.*/export &/'\`" >> .bash_profile
+
